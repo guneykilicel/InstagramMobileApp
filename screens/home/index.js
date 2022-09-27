@@ -3,14 +3,22 @@ import Header from "./components/Header"
 import Stories from "./components/Stories"
 import posts from "../../data/posts"
 import Post from "../../components/shared/Post"
+import Divider from "../../components/shared/Divider"
 
 function Home() {
     return (
-        <ScrollView style={styles.container}>
+        <>
             <Header />
-            <Stories />
-            {posts.map(post => <Post post={post} />)}
-        </ScrollView>
+            <ScrollView
+                stickyHeaderIndices={[1]}
+                style={styles.container}
+            >
+
+                <Stories />
+                <Divider />
+                {posts.map(post => <Post post={post} />)}
+            </ScrollView>
+        </>
     )
 }
 

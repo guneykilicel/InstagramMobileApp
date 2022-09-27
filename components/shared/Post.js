@@ -10,7 +10,7 @@ dayjs.extend(relativeTime)
 
 function Post({ post }) {
     return (
-        <View key={post.id}>
+        <View style={styles.post} key={post.id}>
             <View style={styles.header}>
                 <View style={styles.username}>
                     <Image
@@ -56,20 +56,25 @@ function Post({ post }) {
                     //     fontWeight: '600'
                     // }}
                     seeMoreText="more"
-                    // seeLessText="less"
+                // seeLessText="less"
+                    wrapperStyle={{
+                        marginBottom: 7,
+                    }}
 
                 >
-                    <Text>
                         <Text style={styles.user}>{post.user.name}</Text>
                         {`  `}
                         {post.description}
-                    </Text>
                 </ReadMore>
-                <TouchableOpacity activeOpacity={0.6} style={{paddingVertical: 7}}>
-                    <Text style={styles.comments}>View all {post.comments} comments</Text>
-                </TouchableOpacity>
-                <View>
+                {post.comments > 0 && (
+                    <TouchableOpacity activeOpacity={0.6} style={{ paddingBottom: 7 }}>
+                        <Text style={styles.comments}>View all {post.comments} comments</Text>
+                    </TouchableOpacity>
+                )}
+                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                     <Text style={styles.date}>{dayjs(post.date).fromNow()}</Text>
+
+                    <Text style={styles.translation}> · See Translation</Text>
                 </View>
             </View>
         </View>
@@ -79,6 +84,9 @@ function Post({ post }) {
 export default Post
 
 const styles = StyleSheet.create({
+    post: {
+        marginBottom: 30,
+    },
     header: {
         flexDirection: 'row',
         alignItems: 'center',
@@ -129,5 +137,10 @@ const styles = StyleSheet.create({
     date: {
         fontSize: 13,
         opacity: 0.5,
-    }
+    },
+    translation: {
+        fontWeight: '600',
+        fontSize: 13,
+        // marginLeft: 10
+    },
 })

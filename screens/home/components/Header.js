@@ -29,11 +29,13 @@ export default Header
 
 const styles = StyleSheet.create({
     header: {
-        height: 36,
+        height: 44,
+        backgroundColor: '#fff',
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
-        paddingHorizontal: 15
+        paddingHorizontal: 15,
+        paddingBottom: 4,
     },
     actions: {
         flexDirection: 'row',
