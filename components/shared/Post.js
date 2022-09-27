@@ -6,7 +6,7 @@ import ReadMore from '@fawazahmed/react-native-read-more';
 import dayjs from 'dayjs';
 import relativeTime from "dayjs/plugin/relativeTime"
 
-
+dayjs.extend(relativeTime)
 
 function Post({ post }) {
     return (
@@ -69,7 +69,7 @@ function Post({ post }) {
                     <Text style={styles.comments}>View all {post.comments} comments</Text>
                 </TouchableOpacity>
                 <View>
-                    <Text>{post.date}</Text>
+                    <Text style={styles.date}>{dayjs(post.date).fromNow()}</Text>
                 </View>
             </View>
         </View>
@@ -126,4 +126,8 @@ const styles = StyleSheet.create({
         opacity: 0.5,
         fontWeight: '500'
     },
+    date: {
+        fontSize: 13,
+        opacity: 0.5,
+    }
 })
