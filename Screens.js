@@ -16,7 +16,7 @@ import {
 } from "./Icons";
 
 // screens
-import Home from "./screens/Home";
+import Home from "./screens/home";
 import Search from "./screens/Search";
 import Reel from "./screens/Reel";
 import Shop from "./screens/Shop";
