@@ -37,20 +37,20 @@ const styles = StyleSheet.create({
         paddingVertical: 10,
     },
     story: {
-        width: 67,
-        marginHorizontal: 8
+        width: 80,
+        marginHorizontal: 3.5
     },
     cover: {
-        width: 65,
-        height: 65,
-        borderRadius: 32.5,
+        width: 75,
+        height: 75,
+        borderRadius: 37.5,
         alignItems: 'center',
         justifyContent: 'center',
         marginBottom: 5
     },
     avatar: {
-        width: 60,
-        height: 60,
+        width: 70,
+        height: 70,
         borderWidth: 2.3,
         borderColor: '#fff',
         borderRadius: 60

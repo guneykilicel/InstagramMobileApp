@@ -10,7 +10,7 @@ dayjs.extend(relativeTime)
 
 function Post({ post }) {
     return (
-        <View style={styles.post} key={post.id}>
+        <View style={styles.post}>
             <View style={styles.header}>
                 <View style={styles.username}>
                     <Image
@@ -23,7 +23,10 @@ function Post({ post }) {
                 </View>
                 <Dots size={16} fill="#262626" />
             </View>
-            <FitImage src={post.image} />
+
+            {post.medias.map((media,index) => (
+                <FitImage key={index} media={media} />
+            ))}
 
             <View style={styles.content}>
                 <View style={styles.actions}>
@@ -85,7 +88,7 @@ export default Post
 
 const styles = StyleSheet.create({
     post: {
-        marginBottom: 30,
+        marginBottom: 20,
     },
     header: {
         flexDirection: 'row',
@@ -132,7 +135,6 @@ const styles = StyleSheet.create({
     },
     comments: {
         opacity: 0.5,
-        fontWeight: '500'
     },
     date: {
         fontSize: 13,

@@ -1,21 +1,31 @@
+import { useState } from "react"
 import { Image, Text, View, Dimensions } from "react-native"
 
-function FitImage({src}) {
+function FitImage({ media }) {
 
-    const screenWidth = Dimensions.get('window').width
-    const ratio = 2108/screenWidth
-    const height = 2000/ratio
+    // böyle yapılır ama telefonu biraz yorar
 
-    return(
+    // const [height, setHeight] = useState(0)
+    // const screenWidth = Dimensions.get('window').width
+    // Image.getSize(src, (width, height) => {
+    //     const ratio = width / screenWidth
+    //     setHeight(height/ratio)
+    // })
+
+    const width = Dimensions.get('window').width
+    const ratio = media.width / width
+    const height = media.height / ratio
+
+    return (
         <View>
             <Image
                 style={{
-                    width: screenWidth,
-                    height: height
+                    width,
+                    height
                 }}
                 source={{
-                    uri: src
-                }}  
+                    uri: media.src
+                }}
             />
         </View>
     )
